@@ -12,11 +12,29 @@
     <div class="container">
 
         <h1>Smart Control</h1>
-        <p>Bem-vindo ao sistema.</p>
+        <p>Faça login para acessar o sistema</p>
 
-        <a href="dashboard.html">
-            <button>Entrar</button>
-        </a>
+        <form action="dashboard.html">
+
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+                required
+            >
+
+            <label for="senha">Senha</label>
+            <input
+                type="password"
+                id="senha"
+                placeholder="Digite sua senha"
+                required
+            >
+
+            <button type="submit">Entrar</button>
+
+        </form>
 
     </div>
 
