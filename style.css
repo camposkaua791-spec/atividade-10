@@ -2,62 +2,95 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-    background:#f4f6f9;
+    background:#f4f4f4;
 }
 
-/* MENU FLEXBOX */
-.menu{
+/* LOGIN E CADASTRO */
+
+.login-container{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-form{
+    background:white;
+    width:320px;
+    padding:30px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+.login-form h2{
+    text-align:center;
+}
+
+.login-form input{
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.login-form button{
+    padding:12px;
+    border:none;
+    border-radius:5px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.login-form p{
+    text-align:center;
+}
+
+/* DASHBOARD */
+
+.topo{
+    background:#1f2937;
+    color:white;
+    padding:20px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#2563eb;
-    color:white;
-    padding:20px;
 }
 
-.nav-links{
+.menu{
+    list-style:none;
     display:flex;
     gap:20px;
-    list-style:none;
 }
 
-.nav-links a{
-    color:white;
+.menu a{
     text-decoration:none;
-    font-weight:bold;
+    color:white;
 }
 
-/* GRID DOS CARDS */
-.dashboard{
+.kpis{
+    padding:25px;
+
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
     gap:1.5rem;
-    padding:30px;
 }
 
 .card{
     background:white;
     padding:20px;
     border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.1);
-    position:relative;
+    text-align:center;
+    box-shadow:0 2px 10px rgba(0,0,0,0.15);
 }
 
-.card h2{
-    margin:15px 0;
-}
-
-.status{
-    position:absolute;
-    top:15px;
-    right:15px;
-    background:#ef4444;
-    color:white;
-    padding:5px 10px;
-    border-radius:15px;
-    font-size:12px;
+.card h3{
+    margin-bottom:10px;
 }
