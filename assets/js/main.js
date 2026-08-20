@@ -18,10 +18,10 @@ function exibirSaudacao() {
         "Segunda-Feira",
         "Terça-Feira",
         "Quarta-Feira",
-        "Quinta-Feira",
-        "Sexta-Feira",
-        "Sábado"
-    ];
+        "Quinta-Feira", 
+        "Sexta-Feira", 
+        "Sábado" 
+    ]; 
 
     const diaSemana = diasSemana[agora.getDay()];
 
