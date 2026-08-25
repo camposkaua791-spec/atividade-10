@@ -9,8 +9,8 @@ function exibirSaudacao() {
         sobrenome = "";
     }
 
-    const usuario = `${nome} ${sobrenome}`.trim();
- 
+    const usuario =` ${nome} ${sobrenome.trim()}`;
+
     const agora = new Date();
 
     const diasSemana = [
@@ -18,10 +18,10 @@ function exibirSaudacao() {
         "Segunda-Feira",
         "Terça-Feira",
         "Quarta-Feira",
-        "Quinta-Feira", 
-        "Sexta-Feira", 
-        "Sábado" 
-    ]; 
+        "Quinta-Feira",
+        "Sexta-Feira",
+        "Sábado"
+    ];
 
     const diaSemana = diasSemana[agora.getDay()];
 
@@ -37,10 +37,9 @@ function exibirSaudacao() {
 
     const mensagem =
         `Olá, ${usuario}! Hoje é ${dataAtual}`;
-
-    console.log(mensagem);
-
-    const elementoSaudacao = document.querySelector("#saudacao");
+ 
+    const elementoSaudacao =
+        document.querySelector("#saudacao");
 
     if (elementoSaudacao) {
         elementoSaudacao.textContent = mensagem;
@@ -48,3 +47,46 @@ function exibirSaudacao() {
 }
 
 document.addEventListener("DOMContentLoaded", exibirSaudacao);
+
+const btnTema = document.querySelector("#btnTema");
+
+if (btnTema) {
+    btnTema.addEventListener("click", () => {
+        document.body.classList.toggle("dark-theme");
+    });
+}
+
+const btnMenu = document.querySelector("#btnMenu");
+const menuLateral = document.querySelector("#menuLateral");
+
+if (btnMenu && menuLateral) {
+    btnMenu.addEventListener("click", () => {
+        menuLateral.classList.toggle("ativo");
+    });
+}
+
+const campoBusca = document.querySelector("#campoBusca");
+
+if (campoBusca) {
+
+    campoBusca.addEventListener("input", () => {
+
+        const texto = campoBusca.value.toLowerCase();
+
+        const cards = document.querySelectorAll(".itemBusca");
+
+        cards.forEach(card => {
+
+            const conteudo = card.textContent.toLowerCase();
+
+            if (conteudo.includes(texto)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+    });
+
+}
