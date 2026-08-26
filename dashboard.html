@@ -9,47 +9,51 @@
 </head>
 <body>
 
-    <!-- Barra de Navegação -->
-    <header class="navbar">
-        <!-- Botão do Menu Lateral (Sidebar) para Celular -->
-        <button id="btnMenuToggle" class="btn-menu">☰ Menu</button>
+    <!-- Barra de Navegação Superior -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #222; color: #fff;">
+        <button id="btnMenuToggle" style="padding: 8px 12px; cursor: pointer;">☰ Menu</button>
         <h2>Smart Control</h2>
-        <!-- Botão Dark Mode / Light Mode -->
-        <button id="btnTema" class="btn-tema">🌙 Tema</button>[span_1](start_span)[span_1](end_span)
+        <button id="btnTema" style="padding: 8px 12px; cursor: pointer;">🌙 Alternar Tema</button>
     </header>
 
-    <div class="container-principal">
-        <!-- Menu Lateral Colapsável (Sidebar) -->
-        <aside id="sidebar" class="sidebar">
-            <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Dispositivos</a></li>
-                <li><a href="#">Métricas</a></li>
-                <li><a href="#">Configurações</a></li>
+    <div style="display: flex;">
+        <!-- Menu Lateral (Sidebar para Celular) -->
+        <aside id="sidebar" style="width: 220px; background: #333; color: #fff; padding: 20px; min-height: 80vh; display: block;">
+            <h3>Navegação</h3>
+            <ul style="list-style: none; padding: 0; margin-top: 15px;">
+                <li style="padding: 8px 0;"><a href="#" style="color: #fff; text-decoration: none;">Início</a></li>
+                <li style="padding: 8px 0;"><a href="#" style="color: #fff; text-decoration: none;">Clientes</a></li>
+                <li style="padding: 8px 0;"><a href="#" style="color: #fff; text-decoration: none;">Pedidos</a></li>
+                <li style="padding: 8px 0;"><a href="#" style="color: #fff; text-decoration: none;">Produtos</a></li>
             </ul>
         </aside>
 
         <!-- Conteúdo Principal -->
-        <main class="content">
-            <!-- Mensagem de Saudação Dinâmica -->
-            <h1 id="saudacao">Carregando saudação...</h1>
+        <main style="flex: 1; padding: 20px;">
+            <!-- Saudação Dinâmica -->
+            <h2 id="saudacao" style="margin-bottom: 20px; color: #333;">Carregando saudação...</h2>
 
             <!-- Campo de Busca -->
-            <div class="search-box">
-                <input type="text" id="campoBusca" placeholder="Pesquisar itens, dispositivos ou métricas...">[span_2](start_span)[span_2](end_span)
+            <div style="margin-bottom: 20px;">
+                <input type="text" id="campoBusca" placeholder="Pesquisar nos cards..." style="padding: 10px; width: 100%; max-width: 400px; border: 1px solid #ccc; border-radius: 4px;">
             </div>
 
-            <!-- Lista / Itens para testar o filtro de busca -->
-            <div class="grid-itens">
-                <div class="item-tabela card-metrica">Sensor de Temperatura: <span class="valor-metrica">25</span>°C</div>
-                <div class="item-tabela card-metrica">Sensor de Umidade: <span class="valor-metrica">60</span>%</div>
-                <div class="item-tabela card-metrica">Lâmpada Inteligente - Corredor</div>
-                <div class="item-tabela card-metrica">Câmera de Segurança - Portaria</div>
+            <!-- Cards de Métricas (Exemplo para o filtro e métricas) -->
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <div class="item-tabela" style="background: #f4f4f4; padding: 15px; border-radius: 5px; min-width: 150px;">
+                    Clientes: <span class="valor-metrica">320</span>
+                </div>
+                <div class="item-tabela" style="background: #f4f4f4; padding: 15px; border-radius: 5px; min-width: 150px;">
+                    Pedidos: <span class="valor-metrica">98</span>
+                </div>
+                <div class="item-tabela" style="background: #f4f4f4; padding: 15px; border-radius: 5px; min-width: 150px;">
+                    Produtos: <span class="valor-metrica">42</span>
+                </div>
             </div>
         </main>
     </div>
 
-    <!-- Script JavaScript no final do body -->
+    <!-- Script Principal -->
     <script src="assets/js/main.js"></script>
 </body>
 </html>
