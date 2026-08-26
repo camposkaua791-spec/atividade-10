@@ -1,92 +1,105 @@
 
-function exibirSaudacao() {
 
-    let nome = prompt("Digite seu nome:");
-    let sobrenome = prompt("Digite seu sobrenome:");
 
-    if (!nome || !sobrenome) {
-        nome = "Usuário";
-        sobrenome = "";
+
+
+
+
+
+// ==========================================
+// ARQUIVO: assets/js/main.js (COMPLETO)
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. SAUDAÇÃO DINÂMICA PERSONALIZADA (Prompt + Data Atual com crases corretas)
+    function exibirSaudacao() {
+        let nome = prompt("Digite seu nome:");
+        let sobrenome = prompt("Digite seu sobrenome:");
+        
+        if (!nome || !sobrenome) {
+            nome = "Usuário";
+            sobrenome = "";
+        }
+        
+        const usuario = `${nome} ${sobrenome}`.trim();
+        const agora = new Date();
+        
+        const diasSemana = ["Domingo", "Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"];
+        const diaSemana = diasSemana[agora.getDay()];
+        const diaMes = String(agora.getDate()).padStart(2, '0');
+        const mes = String(agora.getMonth() + 1).padStart(2, '0');
+        const ano = agora.getFullYear();
+        const hora = String(agora.getHours()).padStart(2, '0');
+        const minuto = String(agora.getMinutes()).padStart(2, '0');
+
+        const dataAtual = `${diaSemana}, ${diaMes}/${mes}/${ano} - ${hora}:${minuto} (-03:00)`;
+        const mensagem = `Olá, ${usuario}! Hoje é ${dataAtual}`;
+
+        console.log(mensagem);
+
+        const elementoSaudacao = document.querySelector("#saudacao");
+        if (elementoSaudacao) {
+            elementoSaudacao.textContent = mensagem;
+        }
     }
 
-    const usuario =` ${nome} ${sobrenome.trim()}`;
+    exibirSaudacao();
 
-    const agora = new Date();
+    // 2. CAMPO DE BUSCA EM TEMPO REAL (Filtra a lista/tabela)
+    const inputBusca = document.querySelector("#campoBusca");
+    const itensTabela = document.querySelectorAll(".item-tabela");
 
-    const diasSemana = [
-        "Domingo",
-        "Segunda-Feira",
-        "Terça-Feira",
-        "Quarta-Feira",
-        "Quinta-Feira",
-        "Sexta-Feira",
-        "Sábado"
-    ];
+    if (inputBusca) {
+        inputBusca.addEventListener("input", function(e) {
+            const termo = e.target.value.toLowerCase();
 
-    const diaSemana = diasSemana[agora.getDay()];
-
-    const dia = String(agora.getDate()).padStart(2, "0");
-    const mes = String(agora.getMonth() + 1).padStart(2, "0");
-    const ano = agora.getFullYear();
-
-    const hora = String(agora.getHours()).padStart(2, "0");
-    const minuto = String(agora.getMinutes()).padStart(2, "0");
-
-    const dataAtual =
-        `${diaSemana}, ${dia}/${mes}/${ano} - ${hora}:${minuto} (-03:00)`;
-
-    const mensagem =
-        `Olá, ${usuario}! Hoje é ${dataAtual}`;
- 
-    const elementoSaudacao =
-        document.querySelector("#saudacao");
-
-    if (elementoSaudacao) {
-        elementoSaudacao.textContent = mensagem;
-    }
-}
-
-document.addEventListener("DOMContentLoaded", exibirSaudacao);
-
-const btnTema = document.querySelector("#btnTema");
-
-if (btnTema) {
-    btnTema.addEventListener("click", () => {
-        document.body.classList.toggle("dark-theme");
-    });
-}
-
-const btnMenu = document.querySelector("#btnMenu");
-const menuLateral = document.querySelector("#menuLateral");
-
-if (btnMenu && menuLateral) {
-    btnMenu.addEventListener("click", () => {
-        menuLateral.classList.toggle("ativo");
-    });
-}
-
-const campoBusca = document.querySelector("#campoBusca");
-
-if (campoBusca) {
-
-    campoBusca.addEventListener("input", () => {
-
-        const texto = campoBusca.value.toLowerCase();
-
-        const cards = document.querySelectorAll(".itemBusca");
-
-        cards.forEach(card => {
-
-            const conteudo = card.textContent.toLowerCase();
-
-            if (conteudo.includes(texto)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-
+            itensTabela.forEach(item => {
+                const texto = item.textContent.toLowerCase();
+                if (texto.includes(termo)) {
+                    item.style.display = ""; 
+                } else {
+                    item.style.display = "none"; 
+                }
+            });
         });
+    }
 
-    });
+    // 3. ALTERNÂNCIA DE TEMA (Dark Mode / Light Mode)
+    const btnTema = document.querySelector("#btnTema");
+    
+    if (btnTema) {
+        btnTema.addEventListener("click", function() {
+            document.body.classList.toggle("dark-theme");
+        });
+    }
 
-}
+    // 4. MENU LATERAL PARA CELULAR (Sidebar colapsável)
+    const btnMenu = document.querySelector("#btnMenuToggle");
+    const sidebar = document.querySelector("#sidebar");
+
+    if (btnMenu && sidebar) {
+        btnMenu.addEventListener("click", function(event) {
+            event.preventDefault();
+            
+            if (sidebar.style.display === "none" || sidebar.style.display === "") {
+                sidebar.style.display = "block";
+            } else {
+                sidebar.style.display = "none";
+            }
+        });
+    }
+
+    // 5. SIMULAÇÃO DE MÉTRICAS EM TEMPO REAL
+    const metricas = document.querySelectorAll(".valor-metrica");
+    
+    if (metricas.length > 0) {
+        setInterval(function() {
+            metricas.forEach(metrica => {
+                let valorAtual = parseInt(metrica.textContent) || 20;
+                let variacao = Math.floor(Math.random() * 5) - 2;
+                metrica.textContent = valorAtual + variacao;
+            });
+        }, 3000);
+    }
+});

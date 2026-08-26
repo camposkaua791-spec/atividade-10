@@ -1,61 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Smart Control</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
 
-<header class="topo">
-    <h1>Smart Control</h1>
+    <!-- Barra de Navegação -->
+    <header class="navbar">
+        <!-- Botão do Menu Lateral (Sidebar) para Celular -->
+        <button id="btnMenuToggle" class="btn-menu">☰ Menu</button>
+        <h2>Smart Control</h2>
+        <!-- Botão Dark Mode / Light Mode -->
+        <button id="btnTema" class="btn-tema">🌙 Tema</button>[span_1](start_span)[span_1](end_span)
+    </header>
 
-    <nav>
-        <ul class="menu">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Relatórios</a></li>
-            <li><a href="#">Usuários</a></li>
-            <li><a href="#">Configurações</a></li>
-        </ul>
-    </nav>
-</header>
+    <div class="container-principal">
+        <!-- Menu Lateral Colapsável (Sidebar) -->
+        <aside id="sidebar" class="sidebar">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Dispositivos</a></li>
+                <li><a href="#">Métricas</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </aside>
 
-<section class="kpis">
+        <!-- Conteúdo Principal -->
+        <main class="content">
+            <!-- Mensagem de Saudação Dinâmica -->
+            <h1 id="saudacao">Carregando saudação...</h1>
 
-    <div class="card">
-        <h3>Vendas</h3>
-        <p>R$ 15.000</p>
+            <!-- Campo de Busca -->
+            <div class="search-box">
+                <input type="text" id="campoBusca" placeholder="Pesquisar itens, dispositivos ou métricas...">[span_2](start_span)[span_2](end_span)
+            </div>
+
+            <!-- Lista / Itens para testar o filtro de busca -->
+            <div class="grid-itens">
+                <div class="item-tabela card-metrica">Sensor de Temperatura: <span class="valor-metrica">25</span>°C</div>
+                <div class="item-tabela card-metrica">Sensor de Umidade: <span class="valor-metrica">60</span>%</div>
+                <div class="item-tabela card-metrica">Lâmpada Inteligente - Corredor</div>
+                <div class="item-tabela card-metrica">Câmera de Segurança - Portaria</div>
+            </div>
+        </main>
     </div>
 
-    <div class="card">
-        <h3>Clientes</h3>
-        <p>320</p>
-    </div>
-
-    <div class="card">
-        <h3>Pedidos</h3>
-        <p>98</p>
-    </div>
-
-    <div class="card">
-        <h3>Lucro</h3>
-        <p>R$ 5.400</p>
-    </div>
-
-    <div class="card">
-        <h3>Produtos</h3>
-        <p>42</p>
-    </div>
-
-    <div class="card">
-        <h3>Funcionários</h3>
-        <p>18</p>
-    </div>
-
-</section>                                                
-<h2 id="saudacao"></h2>\h2>
-<script src="assets/js/main.js"></script>
-
+    <!-- Script JavaScript no final do body -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
