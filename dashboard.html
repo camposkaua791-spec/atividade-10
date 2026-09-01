@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Smart Control</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
 
-    <!-- Barra de Navegação Superior -->
     <header style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: #222; color: #fff;">
-        <button id="btnMenuToggle" style="padding: 8px 12px; cursor: pointer;">☰ Menu</button>
+        <button id="btnMenuToggle" aria-label="Alternar Menu Lateral" style="padding: 8px 12px; cursor: pointer;">☰ Menu</button>
         <h2>Smart Control</h2>
-        <button id="btnTema" style="padding: 8px 12px; cursor: pointer;">🌙 Alternar Tema</button>
+        <button id="btnTema" aria-label="Alternar Tema Escuro e Claro" style="padding: 8px 12px; cursor: pointer;">🌙 Alternar Tema</button>
     </header>
 
     <div style="display: flex;">
-        <!-- Menu Lateral (Sidebar para Celular) -->
-        <aside id="sidebar" style="width: 220px; background: #333; color: #fff; padding: 20px; min-height: 80vh; display: block;">
+        <aside id="sidebar" aria-label="Menu de Navegação Lateral" style="width: 240px; background: #333; color: #fff; padding: 20px; min-height: 80vh; display: block;">
             <h3>Navegação</h3>
             <ul style="list-style: none; padding: 0; margin-top: 15px;">
                 <li style="padding: 8px 0;"><a href="#" style="color: #fff; text-decoration: none;">Início</a></li>
@@ -28,32 +25,48 @@
             </ul>
         </aside>
 
-        <!-- Conteúdo Principal -->
         <main style="flex: 1; padding: 20px;">
-            <!-- Saudação Dinâmica -->
             <h2 id="saudacao" style="margin-bottom: 20px; color: #333;">Carregando saudação...</h2>
 
-            <!-- Campo de Busca -->
             <div style="margin-bottom: 20px;">
+                <label for="campoBusca" style="display: none;">Pesquisar nos cards</label>
                 <input type="text" id="campoBusca" placeholder="Pesquisar nos cards..." style="padding: 10px; width: 100%; max-width: 400px; border: 1px solid #ccc; border-radius: 4px;">
             </div>
 
-            <!-- Cards de Métricas (Exemplo para o filtro e métricas) -->
             <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                 <div class="item-tabela" style="background: #f4f4f4; padding: 15px; border-radius: 5px; min-width: 150px;">
                     Clientes: <span class="valor-metrica">320</span>
+                    <br><span class="status-badge status-ativo">Ativo</span>
                 </div>
                 <div class="item-tabela" style="background: #f4f4f4; padding: 15px; border-radius: 5px; min-width: 150px;">
                     Pedidos: <span class="valor-metrica">98</span>
+                    <br><span class="status-badge status-alerta">Alerta</span>
                 </div>
                 <div class="item-tabela" style="background: #f4f4f4; padding: 15px; border-radius: 5px; min-width: 150px;">
                     Produtos: <span class="valor-metrica">42</span>
+                    <br><span class="status-badge status-inativo">Inativo</span>
                 </div>
+            </div>
+
+            <div style="background: var(--bg-card); padding: 25px; border-radius: 10px; border: 1px solid var(--border-color); margin-top: 25px;">
+                <h3 style="margin-top: 0; color: var(--accent);">Parametrização de Rede / Dispositivo</h3>
+                <form id="formParametrizacao" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label for="ipDispositivo" style="display: block; font-size: 0.9rem; margin-bottom: 5px;">Endereço IP (Regex)</label>
+                        <input type="text" id="ipDispositivo" placeholder="Ex: 192.168.0.1" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                    </div>
+                    <div>
+                        <label for="emailContato" style="display: block; font-size: 0.9rem; margin-bottom: 5px;">E-mail de Alerta</label>
+                        <input type="email" id="emailContato" placeholder="admin@smartcontrol.com" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px;">
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <button type="submit" style="padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Salvar Parâmetros</button>
+                    </div>
+                </form>
             </div>
         </main>
     </div>
 
-    <!-- Script Principal -->
-    <script src="assets/js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

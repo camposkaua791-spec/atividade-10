@@ -12,8 +12,11 @@
     <form class="login-form" action="dashboard.html">
         <h2>Smart Control</h2>
 
-        <input type="text" placeholder="Usuário" required>
-        <input type="password" placeholder="Senha" required>
+        <label for="login-usuario" style="display: none;">Usuário</label>
+        <input type="text" id="login-usuario" placeholder="Usuário" required>
+
+        <label for="login-senha" style="display: none;">Senha</label>
+        <input type="password" id="login-senha" placeholder="Senha" required>
 
         <button type="submit">Entrar</button>
 
