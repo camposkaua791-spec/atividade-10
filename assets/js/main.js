@@ -1,17 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", function() {
-    
     
     function exibirSaudacao() {
         let nome = prompt("Digite seu nome:");
@@ -33,10 +20,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const hora = String(agora.getHours()).padStart(2, '0');
         const minuto = String(agora.getMinutes()).padStart(2, '0');
 
-        const dataAtual = `${diaSemana}, ${diaMes}/${mes}/${ano} - ${hora}:${minuto} (-03:00)`;
+        const dataAtual = `${diaSemana}, ${diaMes}/${mes}/${ano} - ${hora}:${minuto}`;
         const mensagem = `Olá, ${usuario}! Hoje é ${dataAtual}`;
-
-        console.log(mensagem);
 
         const elementoSaudacao = document.querySelector("#saudacao");
         if (elementoSaudacao) {
@@ -45,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     exibirSaudacao();
-
     
+    // Filtro de Busca
     const inputBusca = document.querySelector("#campoBusca");
     const itensTabela = document.querySelectorAll(".item-tabela");
 
@@ -65,14 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
     
-    const btnTema = document.querySelector("#btnTema");
     
+    const btnTema = document.querySelector("#btnTema");
     if (btnTema) {
         btnTema.addEventListener("click", function() {
             document.body.classList.toggle("dark-theme");
         });
     }
-
+    
     
     const btnMenu = document.querySelector("#btnMenuToggle");
     const sidebar = document.querySelector("#sidebar");
@@ -81,17 +66,16 @@ document.addEventListener("DOMContentLoaded", function() {
         btnMenu.addEventListener("click", function(event) {
             event.preventDefault();
             
-            if (sidebar.style.display === "none" || sidebar.style.display === "") {
+            if (sidebar.style.display === "none") {
                 sidebar.style.display = "block";
             } else {
                 sidebar.style.display = "none";
             }
         });
     }
-
+    
     
     const metricas = document.querySelectorAll(".valor-metrica");
-    
     if (metricas.length > 0) {
         setInterval(function() {
             metricas.forEach(metrica => {
@@ -100,5 +84,31 @@ document.addEventListener("DOMContentLoaded", function() {
                 metrica.textContent = valorAtual + variacao;
             });
         }, 3000);
+    }
+
+    
+    const formParametrizacao = document.querySelector("#formParametrizacao");
+    if (formParametrizacao) {
+        formParametrizacao.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const ipInput = document.querySelector("#ipDispositivo").value;
+            const emailInput = document.querySelector("#emailContato").value;
+
+            const regexIP = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!regexIP.test(ipInput)) {
+                alert("Endereço IP inválido!");
+                return;
+            }
+
+            if (!regexEmail.test(emailInput)) {
+                alert("E-mail inválido!");
+                return;
+            }
+
+            alert("Parâmetros salvos com sucesso!");
+            formParametrizacao.reset();
+        });
     }
 });

@@ -11,19 +11,20 @@
 <div class="login-container">
     <form class="login-form" action="dashboard.html">
         <h2>Smart Control</h2>
+        <p style="margin-top: 0; margin-bottom: 25px; font-weight: bold; color: #475569;">Login</p>
 
-        <label for="login-usuario" style="display: none;">Usuário</label>
-        <input type="text" id="login-usuario" placeholder="Usuário" required>
-
-        <label for="login-senha" style="display: none;">Senha</label>
+        <input type="email" id="login-email" placeholder="E-mail" required>
         <input type="password" id="login-senha" placeholder="Senha" required>
 
-        <button type="submit">Entrar</button>
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <button type="button" style="background: #1e293b; color: white; padding: 10px; border: none; border-radius: 8px; cursor: pointer; flex: 1; font-size: 13px;">Esqueci a senha</button>
+            <button type="submit" style="background: #16a34a; color: white; padding: 10px; border: none; border-radius: 8px; cursor: pointer; flex: 1; font-size: 13px;">Entrar</button>
+        </div>
 
-        <p>
-            Não possui conta?
-            <a href="cadastro.html">Cadastre-se</a>
-        </p>
+        <div style="display: flex; gap: 10px;">
+            <button type="button" style="background: #dc2626; color: white; padding: 10px; border: none; border-radius: 8px; cursor: pointer; flex: 1; font-size: 13px;">Excluir conta</button>
+            <a href="cadastro.html" style="background: #4f46e5; color: white; padding: 10px; border-radius: 8px; text-decoration: none; display: flex; align-items: center; justify-content: center; flex: 1; font-size: 13px; font-weight: 600;">Criar Conta</a>
+        </div>
     </form>
 </div>
 
