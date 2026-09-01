@@ -6,13 +6,13 @@
 
 
 
-// ==========================================
-// ARQUIVO: assets/js/main.js (COMPLETO)
-// ==========================================
+
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. SAUDAÇÃO DINÂMICA PERSONALIZADA (Prompt + Data Atual com crases corretas)
+    
     function exibirSaudacao() {
         let nome = prompt("Digite seu nome:");
         let sobrenome = prompt("Digite seu sobrenome:");
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     exibirSaudacao();
 
-    // 2. CAMPO DE BUSCA EM TEMPO REAL (Filtra a lista/tabela)
+    
     const inputBusca = document.querySelector("#campoBusca");
     const itensTabela = document.querySelectorAll(".item-tabela");
 
@@ -64,8 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
-    // 3. ALTERNÂNCIA DE TEMA (Dark Mode / Light Mode)
+    
     const btnTema = document.querySelector("#btnTema");
     
     if (btnTema) {
@@ -74,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. MENU LATERAL PARA CELULAR (Sidebar colapsável)
+    
     const btnMenu = document.querySelector("#btnMenuToggle");
     const sidebar = document.querySelector("#sidebar");
 
@@ -90,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5. SIMULAÇÃO DE MÉTRICAS EM TEMPO REAL
+    
     const metricas = document.querySelectorAll(".valor-metrica");
     
     if (metricas.length > 0) {
